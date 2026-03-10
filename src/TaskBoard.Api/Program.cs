@@ -1,3 +1,6 @@
+using Scalar.AspNetCore;
+using TaskBoard.Api.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,28 +13,40 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+var tasks = new List<FreelanceTask>();
 
-app.MapGet("/weatherforecast", () =>
+
+app.MapGet("/tasks", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+    return Results.Ok(tasks);
+});
+
+app.MapPost("/tasks", (CreateTaskCommand command) =>
+{
+    if (string.IsNullOrWhiteSpace(command.Title))
+        return Results.BadRequest("Title is required");
+    var newTask = new FreelanceTask
+    {
+        Id = Guid.NewGuid(),
+        Name = command.Title,
+        Description = command.Description,
+        CreatedAt = DateTime.UtcNow,
+        Status = "New"
+    };
+    tasks.Add(newTask);
+    return Results.Created($"/tasks/{newTask.Id}", newTask);
+});
+
+app.MapGet("/tasks/{id:guid}", (Guid id) =>
+{
+    var task = tasks.FirstOrDefault(x => x.Id == id);
+    return task is null ? Results.NotFound() : Results.Ok(task);
+});
 
 app.Run();
 
