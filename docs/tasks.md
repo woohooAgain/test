@@ -50,7 +50,7 @@ freelance-task-board/
 | 6 | Намеренно сломать дедлоком — починить | Воспроизвести .Result deadlock, разобраться | Понимание дедлока |
 | 7 | Логирование через ILogger (структурное) | Structured logging, log levels, не строки | Читаемые логи |
 
-- [ ] 1. Создать solution и структуру проектов
+- [x] 1. Создать solution и структуру проектов
 - [ ] 2. Минимальный API: создать задачу (in-memory)
 - [ ] 3. NotificationService на Channel\<T\>
 - [ ] 4. Реализовать отправку через BackgroundService
