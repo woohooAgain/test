@@ -1,4 +1,10 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="docs/plan.md" />
+    <File Path="docs/tasks.md" />
+    <File Path="README.md" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src/TaskBoard.Api/TaskBoard.Api.csproj" />
     <Project Path="src/TaskBoard.Application/TaskBoard.Application.csproj" />

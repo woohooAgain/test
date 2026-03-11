@@ -64,13 +64,13 @@ freelance-task-board/
 ---
 
 ### #2 Минимальный API: создать задачу (in-memory)
-- [ ] задача выполнена
+- [x] задача выполнена
 
 **Подзадачи:**
-- [ ] Создать модель `FreelanceTask` с полями: Id, Title, Description, Status, CreatedAt
-- [ ] Реализовать `POST /tasks`, `GET /tasks`, `GET /tasks/{id}`
-- [ ] Хранить в `List<FreelanceTask>` (singleton в DI) — БД пока нет
-- [ ] Добавить базовую валидацию: Title не пустой
+- [x] Создать модель `FreelanceTask` с полями: Id, Title, Description, Status, CreatedAt
+- [x] Реализовать `POST /tasks`, `GET /tasks`, `GET /tasks/{id}`
+- [x] Хранить в `List<FreelanceTask>` (singleton в DI) — БД пока нет
+- [x] Добавить базовую валидацию: Title не пустой
 
 **Definition of Done:**
 - Три endpoint'а отвечают корректно
