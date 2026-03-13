@@ -22,7 +22,7 @@ namespace TaskBoard.UnitTests.Notifications
                 CreatedAt = DateTime.UtcNow,
             };
 
-            var cts = new CancellationTokenSource();
+            using var cts = new CancellationTokenSource();
             var workerTask = worker.StartAsync(cts.Token);
 
             await notificationService.WriteAsync(notification, cts.Token);
@@ -30,6 +30,9 @@ namespace TaskBoard.UnitTests.Notifications
 
             Assert.Equal(LogLevel.Information, logger.LatestRecord.Level);
             Assert.Equal("Received: Type:test type Payload:test payload", logger.LatestRecord.Message);
+
+            await cts.CancelAsync();
+            await workerTask;
         }
     }
 }

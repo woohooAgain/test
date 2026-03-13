@@ -59,4 +59,4 @@ app.MapGet("/tasks/{id:guid}", (Guid id) =>
     return task is null ? Results.NotFound() : Results.Ok(task);
 });
 
-app.Run();
+await app.RunAsync();

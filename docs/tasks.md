@@ -108,13 +108,13 @@ freelance-task-board/
 ---
 
 ### #4 Реализовать отправку через BackgroundService
-- [ ] задача выполнена
+- [x] задача выполнена
 
 **Подзадачи:**
-- [ ] Создать `NotificationWorker : BackgroundService` в `TaskBoard.Notifications`
-- [ ] В `ExecuteAsync` читать из Channel через `await foreach`
-- [ ] Логировать каждое уведомление через `ILogger` (имитация отправки)
-- [ ] Зарегистрировать через `AddHostedService<NotificationWorker>()`
+- [x] Создать `NotificationWorker : BackgroundService` в `TaskBoard.Notifications`
+- [x] В `ExecuteAsync` читать из Channel через `await foreach`
+- [x] Логировать каждое уведомление через `ILogger` (имитация отправки)
+- [x] Зарегистрировать через `AddHostedService<NotificationWorker>()`
 
 **Definition of Done:**
 - Воркер стартует автоматически с приложением
@@ -131,13 +131,13 @@ freelance-task-board/
 ---
 
 ### #5 Добавить CancellationToken везде
-- [ ] задача выполнена
+- [x] задача выполнена
 
 **Подзадачи:**
-- [ ] Добавить `CancellationToken` параметром во все `async` методы
-- [ ] Пробросить токен в `Channel.WriteAsync`, `ReadAllAsync`
-- [ ] В контроллерах получать токен из `HttpContext.RequestAborted`
-- [ ] Убедиться что при `Ctrl+C` приложение завершается без ошибок в логах
+- [x] Добавить `CancellationToken` параметром во все `async` методы
+- [x] Пробросить токен в `Channel.WriteAsync`, `ReadAllAsync`
+- [x] В контроллерах получать токен из `HttpContext.RequestAborted`
+- [x] Убедиться что при `Ctrl+C` приложение завершается без ошибок в логах
 
 **Definition of Done:**
 - Ни один async-метод не игнорирует CancellationToken

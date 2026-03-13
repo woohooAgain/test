@@ -13,11 +13,12 @@ namespace TaskBoard.Api.Workers
             _logger = logger;
         }
 
-        protected override async Task ExecuteAsync(CancellationToken cancellationToken)
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            await foreach(var n in _channel.ReadAllAsync(cancellationToken))
+            await foreach(var n in _channel.ReadAllAsync(stoppingToken))
             {
-                _logger.Log(LogLevel.Information, $"Received: Type:{n.Type} Payload:{n.Payload}");
+                string message = $"Received: Type:{n.Type} Payload:{n.Payload}";
+                _logger.Log(LogLevel.Information, message);
             }
         }
     }

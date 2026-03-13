@@ -12,12 +12,12 @@
     <Project Path="src/TaskBoard.Infrastructure/TaskBoard.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/src/TaskBoard.Notifications/">
-    <Project Path="src/TaskBoard.Notifications/TaskBoard.Notification.csproj" />
+    <Project Path="src/TaskBoard.Notifications/TaskBoard.Notifications.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/TaskBoard.UnitTests/TaskBoard.UnitTests.csproj" />
   </Folder>
-  <Folder Name="/tests/TaskBoard.IntegraionTests/">
+  <Folder Name="/tests/TaskBoard.IntegrationTests/">
     <Project Path="tests/TaskBoard.IntegraionTests/TaskBoard.IntegrationTests.csproj" />
   </Folder>
 </Solution>

@@ -17,12 +17,5 @@
             Payload = payload;
             CreatedAt = createdAt;
         }
-
-        public override string ToString()
-        {
-            return $"Type:{Type} Payload:{Payload}";
-        }
     }
-
-    public record CreateNotificationCommand(string Type, string Payload);
 }
