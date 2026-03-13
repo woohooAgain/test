@@ -17,8 +17,7 @@ namespace TaskBoard.Api.Workers
         {
             await foreach(var n in _channel.ReadAllAsync(stoppingToken))
             {
-                string message = $"Received: Type:{n.Type} Payload:{n.Payload}";
-                _logger.Log(LogLevel.Information, message);
+                _logger.LogInformation("Received: Type:{Type} Payload:{Payload}", n.Type, n.Payload);
             }
         }
     }

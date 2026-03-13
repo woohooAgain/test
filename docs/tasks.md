@@ -175,13 +175,13 @@ freelance-task-board/
 ---
 
 ### #7 Логирование через ILogger (структурное)
-- [ ] задача выполнена
+- [x] задача выполнена
 
 **Подзадачи:**
-- [ ] Убедиться что везде используется `ILogger<T>`, не `Console.WriteLine`
-- [ ] Заменить string interpolation на structured logging: `_logger.LogInformation("Task {TaskId} created", task.Id)`
-- [ ] Настроить `appsettings.json`: разные уровни для разных namespace
-- [ ] Добавить log scope в воркере через `_logger.BeginScope`
+- [x] Убедиться что везде используется `ILogger<T>`, не `Console.WriteLine`
+- [x] Заменить string interpolation на structured logging: `_logger.LogInformation("Task {TaskId} created", task.Id)`
+- [x] Настроить `appsettings.json`: разные уровни для разных namespace
+- [x] Добавить log scope в воркере через `_logger.BeginScope`
 
 **Definition of Done:**
 - Нет ни одного `Console.WriteLine` в production-коде
