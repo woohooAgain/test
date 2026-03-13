@@ -1,4 +1,6 @@
+using Nito.AsyncEx;
 using Scalar.AspNetCore;
+using TaskBoard.Api.Deadlock;
 using TaskBoard.Api.Interfaces;
 using TaskBoard.Api.Models;
 using TaskBoard.Api.Services;
@@ -57,6 +59,17 @@ app.MapGet("/tasks/{id:guid}", (Guid id) =>
 {
     var task = tasks.FirstOrDefault(x => x.Id == id);
     return task is null ? Results.NotFound() : Results.Ok(task);
+});
+
+app.MapGet("/deadlock-demo", () =>
+{
+    //результат асинхронной операции не может вернуть в тот же асинхронный контекст, потому что вызывающий поток заблокирован ожиданием результата через .Result
+    AsyncContext.Run(() =>
+    {
+        var deadlock = new Deadlock();
+        var deadlockId = deadlock.GetId().Result;
+        return Results.Ok(deadlockId);
+    });
 });
 
 await app.RunAsync();
