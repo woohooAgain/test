@@ -86,14 +86,14 @@ freelance-task-board/
 ---
 
 ### #3 NotificationService на Channel\<T\>
-- [ ] задача выполнена
+- [x] задача выполнена
 
 **Подзадачи:**
-- [ ] Создать модель `Notification` (Type, Payload, CreatedAt)
-- [ ] Создать `INotificationChannel` с методами `WriteAsync` и `ReadAllAsync`
-- [ ] Реализовать через `Channel<Notification>.CreateUnbounded()`
-- [ ] Зарегистрировать как singleton в DI
-- [ ] Написать тест: записать 3 уведомления, прочитать — получить все 3
+- [x] Создать модель `Notification` (Type, Payload, CreatedAt)
+- [x] Создать `INotificationChannel` с методами `WriteAsync` и `ReadAllAsync`
+- [x] Реализовать через `Channel<Notification>.CreateUnbounded()`
+- [x] Зарегистрировать как singleton в DI
+- [x] Написать тест: записать 3 уведомления, прочитать — получить все 3
 
 **Definition of Done:**
 - Channel работает как очередь: producer пишет, consumer читает
